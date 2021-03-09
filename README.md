@@ -4,7 +4,7 @@ This is an example PHP application you can use to test your OpenShift environmen
 
 Here is an example:
 ```
-user@host$ oc new-app openshift/php~https://github.com/christianh814/welcome-php
+user@host$ oc new-app openshift/php~https://github.com/christianh814/welcome-app
 ```
 
 Things to keep in mind:
@@ -16,21 +16,21 @@ Things to keep in mind:
 Once you created the app, start your build
 
 ```
-user@host$ oc start-build welcome-php
+user@host$ oc start-build welcome-app
 ```
 
 Once the build completes; create and add your route:
 ```
-user@host$ oc expose svc welcome-php
+user@host$ oc expose svc welcome-app
 ```
 
 Scale up as you wish
 ```
-user@host$ oc scale --replicas=3 dc/welcome-php
+user@host$ oc scale --replicas=3 dc/welcome-app
 ```
 
 If you'd like to add another route (aka "alias"); then you need to specify a new name for it
 
 ```
-user@host$ oc expose svc welcome-php --name=hello-openshift --hostname=hello-openshift.cloudapps.example.com
+user@host$ oc expose svc welcome-app --name=hello-openshift --hostname=hello-openshift.cloudapps.example.com
 ```
